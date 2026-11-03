@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Avenir Next", "Segoe UI", sans-serif;
+  --color-background: #ffffff;
+  --color-foreground: #20242a;
+  --color-muted-foreground: #535c68;
+  --color-border: #dce0e5;
+  --color-input: #929aa5;
+  --color-primary: #244a79;
+  --color-primary-hover: #1c3b62;
+  --color-primary-foreground: #ffffff;
+  --color-muted: #f2f4f6;
+  --color-ring: #244a79;
+  --color-destructive: #9f2929;
+}
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+
+  label {
+    @apply grid min-w-0 gap-1 text-sm font-medium;
+  }
+
+  input, select {
+    @apply h-10 w-full min-w-0 rounded border border-input bg-background px-2.5 text-base font-normal sm:text-sm;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer components {
+  .listings-table th, .listings-table td {
+    @apply border-b border-border px-1.5 py-2.5 text-right wrap-anywhere sm:px-3;
+  }
+
+  .listings-table th {
+    @apply font-semibold;
+  }
+
+  .listings-table th:first-child {
+    @apply text-left;
+  }
+
+  .button-primary, .button-secondary {
+    @apply inline-flex min-h-10 cursor-pointer items-center justify-center rounded border px-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .button-primary {
+    @apply border-primary bg-primary text-primary-foreground hover:bg-primary-hover;
+  }
+
+  .button-secondary {
+    @apply border-input bg-background hover:enabled:bg-muted;
+  }
+}
